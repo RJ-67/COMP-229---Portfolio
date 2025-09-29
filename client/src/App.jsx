@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./App.css"; // your combined CSS file
+import "./App.css";
 
 import profilePic from "./assets/headshot.jpg";
 import resumePdf from "./assets/resume.pdf";
@@ -33,9 +33,12 @@ export default function App() {
   };
 
   return (
-    <div>
+    <div className="app-container">
       <Header navigate={setPage} />
-      {renderPage()}
+      <div className="page-content">
+        {renderPage()}
+      </div>
+      <Footer />
     </div>
   );
 }
@@ -203,5 +206,14 @@ function Contact({ navigate }) {
         <button type="submit">Send Message</button>
       </form>
     </div>
+  );
+}
+
+/* FOOTER COMPONENT */
+function Footer() {
+  return (
+    <footer className="footer">
+      <p>© Ron Joshua Concepcion - Built with React</p>
+    </footer>
   );
 }

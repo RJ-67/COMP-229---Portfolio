@@ -14,8 +14,10 @@
 
 /* BODY */
 body {
-  margin: auto;
-  width: 980px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 /* LINKS */
@@ -26,12 +28,6 @@ a {
 }
 a:hover {
   color: #535bf2;
-}
-
-/* HEADINGS */
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
 }
 
 /* BUTTONS */
@@ -49,23 +45,19 @@ button {
 button:hover {
   border-color: #646cff;
 }
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
 
-/* LIGHT MODE OVERRIDES */
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+/* PAGE CONTENT WRAPPER */
+.page-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 980px;
+  padding: 40px;
+  background: linear-gradient(to right, #646cff, #00d4ff);
+  border-radius: 12px;
+  box-sizing: border-box;
 }
 
 /* HEADER SECTION */
@@ -73,6 +65,7 @@ button:focus-visible {
   display: flex;
   align-items: center;
   gap: 15px;
+  padding: 20px;
 }
 .logo {
   height: 50px;
@@ -109,47 +102,25 @@ button:focus-visible {
   color: #646cff;
 }
 
-/* HOME PAGE */
-.home {
+/* FOOTER */
+.footer {
+  padding: 20px;
+  text-align: center;
+  background-color: #1a1a1a; /* solid background for footer */
+  color: white;
+  font-size: 0.9rem;
+  margin-top: auto;
+}
+
+/* PAGE SECTIONS */
+.home, .about, .projects, .education, .services, .contact {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  height: 100vh;
-  text-align: center;
-  background: linear-gradient(to right, #646cff, #00d4ff);
-  color: white;
-}
-.welcome-section h1 {
-  font-size: 2.5em;
-  margin-bottom: 20px;
-}
-.mission {
-  font-size: 1.2em;
-  max-width: 600px;
-  margin-bottom: 30px;
-}
-.about-button {
-  padding: 12px 24px;
-  background-color: white;
-  color: #646cff;
-  font-weight: bold;
-  border-radius: 8px;
-  text-decoration: none;
-  transition: background-color 0.3s, color 0.3s;
-}
-.about-button:hover {
-  background-color: #646cff;
-  color: white;
+  width: 100%;
 }
 
 /* ABOUT PAGE */
-.about {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 30px;
-}
 .about-content {
   display: flex;
   flex-direction: row;
@@ -184,21 +155,6 @@ button:focus-visible {
 }
 
 /* PROJECTS PAGE */
-.projects {
-  padding: 30px;
-  text-align: center;
-  font-family: Arial, sans-serif;
-  min-height: 100vh;
-  background: linear-gradient(to right, #646cff, #00d4ff);
-  color: white;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.projects h1 {
-  font-size: 2.5em;
-  margin-bottom: 30px;
-}
 .project {
   margin: 20px 0;
   padding: 20px;
@@ -215,41 +171,9 @@ button:focus-visible {
   object-fit: cover;
   border-radius: 8px;
   margin-bottom: 15px;
-  background: white;
-  padding: 5px;
-}
-
-/* EDUCATION PAGE */
-.education {
-  padding: 30px;
-  text-align: center;
-}
-.education h1 {
-  margin-bottom: 20px;
-}
-.edu-item {
-  margin-bottom: 20px;
-}
-.edu-date {
-  font-style: italic;
 }
 
 /* SERVICES PAGE */
-.services {
-  padding: 40px;
-  min-height: 100vh;
-  background: linear-gradient(to right, #646cff, #00d4ff);
-  color: white;
-  font-family: Arial, sans-serif;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.services h1 {
-  font-size: 2.5em;
-  margin-bottom: 40px;
-}
 .service-card {
   background: rgba(255, 255, 255, 0.15);
   margin: 20px 0;
@@ -277,21 +201,6 @@ button:focus-visible {
 }
 
 /* CONTACT PAGE */
-.contact {
-  padding: 40px;
-  min-height: 100vh;
-  background: linear-gradient(to right, #646cff, #00d4ff);
-  color: white;
-  font-family: Arial, sans-serif;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.contact h1 {
-  font-size: 2.5em;
-  margin-bottom: 20px;
-}
 .contact-info {
   background: rgba(255, 255, 255, 0.15);
   padding: 20px;
@@ -339,4 +248,43 @@ button:focus-visible {
 .contact-form button:hover {
   background: #646cff;
   color: white;
+}
+
+.education {
+  padding: 30px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.education h1 {
+  margin-bottom: 20px;
+  font-size: 2.5em;
+}
+
+.edu-item {
+  max-width: 700px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  text-align: left;
+}
+
+.edu-item h2 {
+  font-size: 1.8em;
+  margin-bottom: 8px;
+}
+
+.edu-item p {
+  font-size: 1.1em;
+  line-height: 1.6;
+  margin: 4px 0;
+}
+
+.edu-date {
+  font-style: italic;
+  color: #f0f0f0;
 }
